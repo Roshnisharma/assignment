@@ -1,0 +1,37 @@
+---
+title: "Leaflet Assignment"
+author: "Roshni Sharma"
+date: "August 3, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+
+This is an R Markdown presentation to Create a web page using R Markdown that features a map created with Leaflet.Host this webpage on either GitHub Pages, RPubs, or NeoCities.
+The webpage must contain the date that the document is created on, and it must contain a map created with Leaflet. 
+
+
+## My office and my house
+
+```{r cars, echo = FALSE}
+library(leaflet)
+my_map <- leaflet() %>% 
+  addTiles()
+
+offhouselatlong <- data.frame(
+ lat = c(28.4089, 28.4595),
+ lng = c(77.3178, 77.0266))
+popupsnames <- c(
+  "<a href='https://www.mapsofindia.com/lat_long/haryana/gurgaon.htm'>Home Faridabad</a>",
+  "<a href='https://www.mapsofindia.com/lat_long/haryana/faridabad.html'>Gurgaon Office</a>")
+
+offhouselatlong %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(popup=popupsnames)
+
+```
